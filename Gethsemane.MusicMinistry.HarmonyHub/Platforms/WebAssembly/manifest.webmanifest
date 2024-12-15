@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "Gethsemane.MusicMinistry.HarmonyHub",
+  "display": "standalone",
+  "name": "Gethsemane.MusicMinistry.HarmonyHub",
+  "short_name": "Gethsemane.MusicMinistry.HarmonyHub",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}
