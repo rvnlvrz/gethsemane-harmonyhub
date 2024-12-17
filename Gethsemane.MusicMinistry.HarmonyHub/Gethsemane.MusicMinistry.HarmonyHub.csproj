@@ -58,4 +58,10 @@
         <ProjectReference Include="..\Gethsemane.MusicMinistry.HarmonyHub.MauiControls\Gethsemane.MusicMinistry.HarmonyHub.MauiControls.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <MauiXaml Include="Presentation\MauiXaml1.xaml">
+        <IsDefaultItem>true</IsDefaultItem>
+      </MauiXaml>
+    </ItemGroup>
+
 </Project>
