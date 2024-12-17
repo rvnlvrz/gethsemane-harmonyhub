@@ -1,0 +1,10 @@
+<linker>
+  <assembly fullname="Gethsemane.MusicMinistry.HarmonyHub" />
+
+  <!--
+  Uncomment this section when using JSON.NET
+  <assembly fullname="System.Core">
+    <type fullname="System.Linq.Expressions*" />
+  </assembly>
+   -->
+</linker>
