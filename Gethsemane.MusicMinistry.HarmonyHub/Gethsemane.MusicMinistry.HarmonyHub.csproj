@@ -55,7 +55,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Gethsemane.MusicMinistry.HarmonyHub.MauiControls\Gethsemane.MusicMinistry.HarmonyHub.MauiControls.csproj"/>
+        <ProjectReference Include="..\Gethsemane.MusicMinistry.HarmonyHub.MauiControls\Gethsemane.MusicMinistry.HarmonyHub.MauiControls.csproj" />
     </ItemGroup>
 
     <ItemGroup>

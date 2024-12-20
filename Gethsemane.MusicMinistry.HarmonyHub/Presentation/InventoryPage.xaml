@@ -8,16 +8,76 @@
     mc:Ignorable="d"
     xmlns:utu="using:Uno.Toolkit.UI"
     Background="{ThemeResource BackgroundBrush}">
-
-    <Grid>
-        <utu:NavigationBar Content="Inventory">
+    <Grid utu:SafeArea.Insets="VisibleBounds">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <utu:NavigationBar Content="Inventory"
+                           Background="{ThemeResource PrimaryBrush}"
+                           Foreground="{ThemeResource OnPrimaryBrush}"
+                           Style="{StaticResource NavigationBarStyle}">
             <utu:NavigationBar.MainCommand>
-                <AppBarButton>
+                <AppBarButton Foreground="{ThemeResource OnPrimaryBrush}">
                     <AppBarButton.Icon>
-                        <BitmapIcon UriSource="ms-appx:///Assets/Images/back.png" />
+                        <SymbolIcon Symbol="Back" />
                     </AppBarButton.Icon>
                 </AppBarButton>
             </utu:NavigationBar.MainCommand>
+            <utu:NavigationBar.PrimaryCommands>
+                <AppBarButton Foreground="{ThemeResource OnPrimaryBrush}">
+                    <AppBarButton.Icon>
+                        <SymbolIcon Symbol="Sort" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton Foreground="{ThemeResource OnPrimaryBrush}">
+                    <AppBarButton.Icon>
+                        <SymbolIcon Symbol="Find" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton Foreground="{ThemeResource OnPrimaryBrush}">
+                    <AppBarButton.Icon>
+                        <SymbolIcon Symbol="Add" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </utu:NavigationBar.PrimaryCommands>
         </utu:NavigationBar>
+        <utu:TabBar SelectionIndicatorTransitionMode="Slide"
+                    Grid.Row="1"
+                    Style="{StaticResource ColoredTopTabBarStyle}">
+            <utu:TabBar.Items>
+                <utu:TabBarItem Content="Summary" />
+                <utu:TabBarItem Content="All Items" />
+                <utu:TabBarItem Content="Borrowed" />
+                <utu:TabBarItem Content="Available" />
+            </utu:TabBar.Items>
+        </utu:TabBar>
+        <Grid Grid.Row="2">
+            <ScrollViewer VerticalAlignment="Top" HorizontalScrollBarVisibility="Auto">
+                <StackPanel Orientation="Horizontal">
+                    <!-- OutlinedCardStyle -->
+                    <!-- Default card margin is 6 -->
+                    <utu:Card HeaderContent="Total Items"
+                              Margin="6,6,0,6"
+                              SubHeaderContent="With title and subtitle"
+                              Style="{StaticResource OutlinedCardStyle}" />
+
+                    <!-- OutlinedCardStyle -->
+                    <utu:Card HeaderContent="Borrowed/Returned"
+                              Margin="6,6,0,6"
+                              SubHeaderContent="With title and subtitle"
+                              Style="{StaticResource OutlinedCardStyle}" />
+
+                    <!-- OutlinedCardStyle -->
+                    <utu:Card HeaderContent="Overdue"
+                              Margin="6,6,6,6"
+                              SubHeaderContent="With title and subtitle"
+                              Style="{StaticResource OutlinedCardStyle}" />
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
     </Grid>
 </Page>

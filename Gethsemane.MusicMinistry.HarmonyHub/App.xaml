@@ -22,7 +22,7 @@
       </ResourceDictionary.MergedDictionaries>
 
       <!-- Add resources here -->
-
+      <Style TargetType="CommandBar" BasedOn="{StaticResource NativeDefaultCommandBar}" />
     </ResourceDictionary>
   </Application.Resources>
 

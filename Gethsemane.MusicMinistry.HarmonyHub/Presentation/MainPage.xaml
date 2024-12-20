@@ -18,92 +18,83 @@
         <Grid utu:SafeArea.Insets="VisibleBounds" uen:Region.Attached="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
+
             <!-- Navbar -->
             <utu:NavigationBar Content="{Binding Title}"
+                               Background="{ThemeResource PrimaryBrush}"
+                               Foreground="{ThemeResource OnPrimaryBrush}"
                                Style="{StaticResource MaterialNavigationBarStyle}" />
-            <muxc:NavigationView Grid.Row="1"
-                                 uen:Region.Attached="True"
-                                 x:Name="NavView" IsPaneToggleButtonVisible="False">
-                <!-- Navigation Menu -->
-                <muxc:NavigationView.MenuItems>
-                    <muxc:NavigationViewItem Content="Dashboard" uen:Region.Name="Dashboard" />
-                    <muxc:NavigationViewItem Content="Attendance" uen:Region.Name="Attendance" />
-                </muxc:NavigationView.MenuItems>
-                <muxc:NavigationView.Content>
-                    <!-- Content Grid -->
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
 
-                        <Grid uen:Region.Attached="True"
-                              uen:Region.Navigator="Visibility">
-                            <Grid Visibility="Collapsed" uen:Region.Name="Dashboard">
-                                <utu:Card HeaderContent="📋 Inventory"
-                                          SupportingContent="Keep track of score sheets borrowed and returned with ease"
-                                          IsClickable="False"
-                                          Style="{StaticResource ElevatedCardStyle}">
-                                    <utu:Card.SupportingContentTemplate>
-                                        <DataTemplate x:Key="ActionCardTemplate">
-                                            <Grid>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*" />
-                                                    <RowDefinition Height="Auto" />
-                                                </Grid.RowDefinitions>
+            <!-- Content Grid -->
+            <Grid Grid.Row="1">
+                <Grid uen:Region.Attached="True"
+                      uen:Region.Navigator="Visibility">
+                    <Grid Visibility="Collapsed" uen:Region.Name="Dashboard">
+                        <utu:Card HeaderContent="📋 Inventory"
+                                  SupportingContent="Keep track of score sheets borrowed and returned with ease"
+                                  IsClickable="False"
+                                  Style="{StaticResource ElevatedCardStyle}">
+                            <utu:Card.SupportingContentTemplate>
+                                <DataTemplate x:Key="ActionCardTemplate">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
 
-                                                <!-- Description Area -->
-                                                <TextBlock Text="{Binding}"
-                                                           Margin="16,8,16,8"
-                                                           TextWrapping="Wrap"
-                                                           FontSize="14" />
+                                        <!--Description Area-->
+                                        <TextBlock Text="{Binding}"
+                                                   Margin="16,8,16,8"
+                                                   TextWrapping="Wrap"
+                                                   FontSize="14" />
 
-                                                <!-- Button Area -->
-                                                <StackPanel Orientation="Horizontal"
-                                                            Grid.Row="1"
-                                                            HorizontalAlignment="Right"
-                                                            Margin="8">
-                                                    <Button Content="Go to Inventory"
-                                                            HorizontalAlignment="Right"
-                                                            Click="OnInventoryButtonClick" />
-                                                </StackPanel>
-                                            </Grid>
-                                        </DataTemplate>
-                                    </utu:Card.SupportingContentTemplate>
-                                </utu:Card>
-                            </Grid>
-                            <Grid Visibility="Collapsed" uen:Region.Name="Attendance">
-                                <TextBlock Text="Attendance"
-                                           FontSize="24"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center" />
-                            </Grid>
-                        </Grid>
-
-                        <utu:TabBar Grid.Row="2"
-                                    x:Name="Tabs"
-                                    uen:Region.Attached="True"
-                                    VerticalAlignment="Bottom">
-                            <utu:TabBar.Items>
-                                <utu:TabBarItem Content="Dashboard" uen:Region.Name="Dashboard"
-                                                Style="{StaticResource MaterialBottomTabBarItemStyle}">
-                                    <utu:TabBarItem.Icon>
-                                        <SymbolIcon Symbol="Home" />
-                                    </utu:TabBarItem.Icon>
-                                </utu:TabBarItem>
-                                <utu:TabBarItem Content="Attendance" uen:Region.Name="Attendance"
-                                                Style="{StaticResource MaterialBottomTabBarItemStyle}">
-                                    <utu:TabBarItem.Icon>
-                                        <SymbolIcon Symbol="Document" />
-                                    </utu:TabBarItem.Icon>
-                                </utu:TabBarItem>
-                            </utu:TabBar.Items>
-                        </utu:TabBar>
+                                        <!--Button Area-->
+                                        <StackPanel Orientation="Horizontal"
+                                                    Grid.Row="1"
+                                                    HorizontalAlignment="Right"
+                                                    Margin="8">
+                                            <Button Content="Go to Inventory"
+                                                    HorizontalAlignment="Right"
+                                                    Click="OnInventoryButtonClick" />
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </utu:Card.SupportingContentTemplate>
+                        </utu:Card>
                     </Grid>
-                </muxc:NavigationView.Content>
-            </muxc:NavigationView>
+                    <Grid Visibility="Collapsed" uen:Region.Name="Attendance">
+                        <TextBlock Text="Attendance"
+                                   FontSize="24"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <!-- Bottom Tab Bar -->
+            <utu:TabBar Grid.Row="2"
+                        x:Name="Tabs"
+                        uen:Region.Attached="True"
+                        VerticalAlignment="Bottom"
+                        Style="{StaticResource BottomTabBarStyle}">
+                <utu:TabBar.Items>
+                    <utu:TabBarItem Content="Dashboard" uen:Region.Name="Dashboard"
+                                    Style="{StaticResource MaterialBottomTabBarItemStyle}">
+                        <utu:TabBarItem.Icon>
+                            <SymbolIcon Symbol="Home" />
+                        </utu:TabBarItem.Icon>
+                    </utu:TabBarItem>
+                    <utu:TabBarItem Content="Attendance" uen:Region.Name="Attendance"
+                                    Style="{StaticResource MaterialBottomTabBarItemStyle}">
+                        <utu:TabBarItem.Icon>
+                            <SymbolIcon Symbol="Document" />
+                        </utu:TabBarItem.Icon>
+                    </utu:TabBarItem>
+                </utu:TabBar.Items>
+            </utu:TabBar>
         </Grid>
     </ScrollViewer>
 </Page>
