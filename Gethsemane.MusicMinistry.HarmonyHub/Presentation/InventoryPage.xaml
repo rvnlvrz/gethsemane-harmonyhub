@@ -81,39 +81,48 @@
                                utu:AutoLayout.CounterAlignment="Stretch" Foreground="{ThemeResource OnSurfaceBrush}"
                                Style="{StaticResource TitleLarge}" />
                     <utu:AutoLayout Background="{ThemeResource BackgroundBrush}" CounterAxisAlignment="Start"
-                                    Padding="0,0,0,8" utu:AutoLayout.CounterAlignment="Start" Width="439">
+                                    Padding="0,0,0,8">
                         <ScrollViewer HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Auto"
-                                      VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled" Width="439">
+                                      VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled"
+                                      utu:AutoLayout.CounterAlignment="Stretch">
                             <utu:AutoLayout Spacing="16" CounterAxisAlignment="Start" Orientation="Horizontal"
-                                            Padding="16,0">
-                                <utu:AutoLayout Background="{ThemeResource SurfaceBrush}" CornerRadius="12"
-                                                PrimaryAxisAlignment="Center" CounterAxisAlignment="Center" Width="150">
-                                    <utu:AutoLayout CornerRadius="12" CounterAxisAlignment="Start"
-                                                    utu:AutoLayout.CounterAlignment="Stretch">
-                                        <utu:AutoLayout PrimaryAxisAlignment="Center" Padding="16"
+                                            Padding="16,0,0,0">
+                                <utu:CardContentControl Margin="0" Width="144" CornerRadius="12"
+                                                        Style="{StaticResource ElevatedCardContentControlStyle}">
+                                    <utu:AutoLayout Background="{ThemeResource SurfaceBrush}" CornerRadius="12"
+                                                    PrimaryAxisAlignment="Center" CounterAxisAlignment="Center"
+                                                    HorizontalAlignment="Stretch">
+                                        <utu:AutoLayout CornerRadius="12" CounterAxisAlignment="Start"
                                                         utu:AutoLayout.CounterAlignment="Stretch">
-                                            <TextBlock TextWrapping="Wrap" Text="Totals"
-                                                       Foreground="{ThemeResource OnSurfaceBrush}"
-                                                       Style="{StaticResource TitleSmall}" />
-                                            <TextBlock TextWrapping="Wrap" Text="123 Items&#xA;456 Sheet Music"
-                                                       Foreground="{ThemeResource OnSurfaceVariantBrush}" />
+                                            <utu:AutoLayout PrimaryAxisAlignment="Center" Padding="16"
+                                                            utu:AutoLayout.CounterAlignment="Stretch">
+                                                <TextBlock TextWrapping="Wrap" Text="Totals"
+                                                           Foreground="{ThemeResource OnSurfaceBrush}"
+                                                           Style="{StaticResource TitleSmall}" />
+                                                <TextBlock TextWrapping="Wrap" Text="123 Items&#xA;456 Sheet Music"
+                                                           Foreground="{ThemeResource OnSurfaceVariantBrush}" />
+                                            </utu:AutoLayout>
                                         </utu:AutoLayout>
                                     </utu:AutoLayout>
-                                </utu:AutoLayout>
-                                <utu:AutoLayout Background="{ThemeResource SurfaceBrush}" CornerRadius="12"
-                                                PrimaryAxisAlignment="Center" CounterAxisAlignment="Center" Width="150">
-                                    <utu:AutoLayout CornerRadius="12" CounterAxisAlignment="Start"
-                                                    utu:AutoLayout.CounterAlignment="Stretch">
-                                        <utu:AutoLayout PrimaryAxisAlignment="Center" Padding="16"
+                                </utu:CardContentControl>
+                                <utu:CardContentControl Margin="0" Width="144" CornerRadius="12"
+                                                        Style="{StaticResource ElevatedCardContentControlStyle}">
+                                    <utu:AutoLayout Background="{ThemeResource SurfaceBrush}" CornerRadius="12"
+                                                    PrimaryAxisAlignment="Center" CounterAxisAlignment="Center"
+                                                    HorizontalAlignment="Stretch">
+                                        <utu:AutoLayout CornerRadius="12" CounterAxisAlignment="Start"
                                                         utu:AutoLayout.CounterAlignment="Stretch">
-                                            <TextBlock TextWrapping="Wrap" Text="Borrowed"
-                                                       Foreground="{ThemeResource OnSurfaceBrush}"
-                                                       Style="{StaticResource TitleSmall}" />
-                                            <TextBlock TextWrapping="Wrap" Text="74 Items&#xA;53 Sheet Music"
-                                                       Foreground="{ThemeResource OnSurfaceVariantBrush}" />
+                                            <utu:AutoLayout PrimaryAxisAlignment="Center" Padding="16"
+                                                            utu:AutoLayout.CounterAlignment="Stretch">
+                                                <TextBlock TextWrapping="Wrap" Text="Borrowed"
+                                                           Foreground="{ThemeResource OnSurfaceBrush}"
+                                                           Style="{StaticResource TitleSmall}" />
+                                                <TextBlock TextWrapping="Wrap" Text="74 Items&#xA;53 Sheet Music"
+                                                           Foreground="{ThemeResource OnSurfaceVariantBrush}" />
+                                            </utu:AutoLayout>
                                         </utu:AutoLayout>
                                     </utu:AutoLayout>
-                                </utu:AutoLayout>
+                                </utu:CardContentControl>
                                 <utu:CardContentControl Margin="0" Width="144" CornerRadius="12"
                                                         Style="{StaticResource ElevatedCardContentControlStyle}">
                                     <utu:AutoLayout Background="{ThemeResource SurfaceBrush}" CornerRadius="12"
