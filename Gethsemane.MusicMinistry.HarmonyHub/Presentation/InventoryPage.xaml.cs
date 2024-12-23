@@ -21,6 +21,8 @@ public sealed partial class InventoryPage : Page
         // Register the event when the page is navigated to
         var manager = SystemNavigationManager.GetForCurrentView();
         manager.BackRequested += OnBackRequested!;
+
+        _ = this.Navigator()?.NavigateRouteAsync(this, "./All Items");
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
