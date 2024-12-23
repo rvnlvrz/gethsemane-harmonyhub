@@ -22,25 +22,24 @@
                 <utu:NavigationBar.MainCommand>
                     <AppBarButton>
                         <AppBarButton.Icon>
-                            <PathIcon Data="{StaticResource Icon_Keyboard_Backspace}"
-                                      Foreground="{ThemeResource OnSurfaceBrush}" />
+                            <SymbolIcon Symbol="Back" Foreground="{ThemeResource OnSurfaceBrush}" />
                         </AppBarButton.Icon>
                     </AppBarButton>
                 </utu:NavigationBar.MainCommand>
                 <utu:NavigationBar.PrimaryCommands>
                     <AppBarButton>
                         <AppBarButton.Icon>
-                            <PathIcon Data="{StaticResource Icon_Sort}" Foreground="{ThemeResource OnSurfaceBrush}" />
+                            <SymbolIcon Symbol="Sort" Foreground="{ThemeResource OnSurfaceBrush}" />
                         </AppBarButton.Icon>
                     </AppBarButton>
                     <AppBarButton>
                         <AppBarButton.Icon>
-                            <PathIcon Data="{StaticResource Icon_Search}" Foreground="{ThemeResource OnSurfaceBrush}" />
+                            <SymbolIcon Symbol="Find" Foreground="{ThemeResource OnSurfaceBrush}" />
                         </AppBarButton.Icon>
                     </AppBarButton>
                     <AppBarButton>
                         <AppBarButton.Icon>
-                            <PathIcon Data="{StaticResource Icon_Add}" Foreground="{ThemeResource OnSurfaceBrush}" />
+                            <SymbolIcon Symbol="Add" Foreground="{ThemeResource OnSurfaceBrush}" />
                         </AppBarButton.Icon>
                     </AppBarButton>
                 </utu:NavigationBar.PrimaryCommands>
