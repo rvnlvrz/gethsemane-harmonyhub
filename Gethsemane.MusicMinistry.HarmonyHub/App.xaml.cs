@@ -97,22 +97,20 @@ public partial class App : Application
         views.Register(
             new ViewMap(ViewModel: typeof(ShellModel)),
             new ViewMap<MainPage, MainModel>(),
-            new ViewMap<InventoryPage>(),
-            new DataViewMap<SecondPage, SecondModel, Entity>()
+            new ViewMap<InventoryPage, InventoryViewModel>()
         );
 
         routes.Register(
             new RouteMap("", View: views.FindByViewModel<ShellModel>(),
                 Nested:
                 [
-                    new RouteMap("Main", View: views.FindByViewModel<MainModel>(), IsDefault: true,
-                        Nested:
-                        [
-                            new RouteMap("Dashboard"),
-                            new RouteMap("Attendance")
-                        ]),
-                    new RouteMap("Second", View: views.FindByViewModel<SecondModel>()),
-                    new RouteMap("Inventory", View: views.FindByView<InventoryPage>()),
+                    new RouteMap("Main", View: views.FindByViewModel<MainModel>(), IsDefault: true),
+                    new RouteMap("Inventory", View: views.FindByView<InventoryPage>(), Nested:
+                    [
+                        new RouteMap("All Items"),
+                        new RouteMap("Borrowed"),
+                        new RouteMap("Available")
+                    ]),
                 ]
             )
         );

@@ -1,19 +1,20 @@
+﻿using System.ComponentModel;
+
 namespace Gethsemane.MusicMinistry.HarmonyHub.Presentation;
 
-public partial record MainModel
+[Bindable(BindableSupport.Yes)]
+public partial record InventoryViewModel
 {
-    private INavigator _navigator;
+    private readonly INavigator _navigator;
 
-    public MainModel(
+    public InventoryViewModel(
         IOptions<AppConfig> appInfo,
         INavigator navigator)
     {
         _navigator = navigator;
-        Title = "Main";
-        Title += $" - {appInfo?.Value?.Environment}";
     }
 
-    public string? Title { get; }
+    public string? Title => "Inventory";
 
     public IState<string> Name => State<string>.Value(this, () => string.Empty);
 

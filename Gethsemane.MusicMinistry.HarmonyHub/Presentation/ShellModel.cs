@@ -1,5 +1,8 @@
+using System.ComponentModel;
+
 namespace Gethsemane.MusicMinistry.HarmonyHub.Presentation;
 
+[Bindable(BindableSupport.No)]
 public class ShellModel
 {
     private readonly INavigator _navigator;

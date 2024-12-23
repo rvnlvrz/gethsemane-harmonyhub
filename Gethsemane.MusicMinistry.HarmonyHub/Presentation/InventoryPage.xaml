@@ -21,7 +21,7 @@
         <!-- ReSharper disable Xaml.UnexpectedElement -->
         <!-- Nav Bar -->
         <utu:AutoLayout utu:AutoLayout.CounterAlignment="Stretch" utu:AutoLayout.PrimaryAlignment="Stretch">
-            <utu:NavigationBar HorizontalContentAlignment="Left" Content="Inventory">
+            <utu:NavigationBar HorizontalContentAlignment="Left" Content="{Binding Title}">
                 <utu:NavigationBar.MainCommand>
                     <AppBarButton>
                         <AppBarButton.Icon>
