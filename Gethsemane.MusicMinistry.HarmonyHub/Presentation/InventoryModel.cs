@@ -1,26 +1,19 @@
 ﻿using System.ComponentModel;
+using Gethsemane.MusicMinistry.HarmonyHub.Infrastructure.Repositories.Inventory;
 
 namespace Gethsemane.MusicMinistry.HarmonyHub.Presentation;
 
 [Bindable(BindableSupport.Yes)]
-public partial record InventoryViewModel
+public partial record InventoryModel
 {
     private readonly INavigator _navigator;
+    private readonly IAtlasClient _atlasClient;
 
-    public InventoryViewModel(
-        IOptions<AppConfig> appInfo,
-        INavigator navigator)
+    public InventoryModel(INavigator navigator, IAtlasClient atlasClient)
     {
         _navigator = navigator;
+        _atlasClient = atlasClient;
     }
 
     public string? Title => "Inventory";
-
-    public IState<string> Name => State<string>.Value(this, () => string.Empty);
-
-    public async Task GoToSecond()
-    {
-        var name = await Name;
-        await _navigator.NavigateViewModelAsync<SecondModel>(this, data: new Entity(name!));
-    }
 }

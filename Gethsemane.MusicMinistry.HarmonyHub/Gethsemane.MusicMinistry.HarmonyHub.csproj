@@ -34,6 +34,7 @@
         -->
         <UnoFeatures>
             Material;
+            AuthenticationOidc;
             Dsp;
             Hosting;
             Toolkit;
@@ -56,16 +57,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Gethsemane.MusicMinistry.HarmonyHub.MauiControls\Gethsemane.MusicMinistry.HarmonyHub.MauiControls.csproj" />
+        <ProjectReference Include="..\Gethsemane.MusicMinistry.HarmonyHub.MauiControls\Gethsemane.MusicMinistry.HarmonyHub.MauiControls.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <MauiXaml Include="Presentation\MauiXaml1.xaml">
-        <IsDefaultItem>true</IsDefaultItem>
-      </MauiXaml>
+        <MauiXaml Include="Presentation\MauiXaml1.xaml">
+            <IsDefaultItem>true</IsDefaultItem>
+        </MauiXaml>
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Auth0.OidcClient.MAUI"/>
         <PackageReference Include="MongoDB.Driver"/>
     </ItemGroup>
 
