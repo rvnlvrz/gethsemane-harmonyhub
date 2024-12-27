@@ -69,6 +69,7 @@
     <ItemGroup>
         <PackageReference Include="Auth0.OidcClient.MAUI"/>
         <PackageReference Include="MongoDB.Driver"/>
+        <PackageReference Include="Riok.Mapperly"/>
     </ItemGroup>
 
 </Project>

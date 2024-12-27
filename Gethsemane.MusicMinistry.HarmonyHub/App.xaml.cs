@@ -1,5 +1,6 @@
 using Gethsemane.MusicMinistry.HarmonyHub.Configuration;
 using Gethsemane.MusicMinistry.HarmonyHub.Infrastructure.Authentication;
+using Gethsemane.MusicMinistry.HarmonyHub.Infrastructure.Repositories;
 using Gethsemane.MusicMinistry.HarmonyHub.Infrastructure.Repositories.Inventory;
 using Uno.Resizetizer;
 
@@ -73,7 +74,8 @@ public partial class App : Application
                         configure: configBuilder =>
                             configBuilder
                                 .EmbeddedSource<App>()
-                                .Section<AppConfig>())
+                                .Section<AppConfig>()
+                                .Section<InventoryConfig>())
                     // Register Json serializers (ISerializer and ISerializer)
                     .UseSerialization(
                         (context, services) => services
@@ -99,10 +101,11 @@ public partial class App : Application
                         {
                             // TODO: Register your services
                             //services.AddSingleton<IMyService, MyService>();
+                            services.AddSingleton<IAuthZeroClient, AuthZeroClient>();
                             services
-                                .AddSingleton<IAuthZeroClient,
-                                    AuthZeroClient>();
-                            services.AddSingleton<IAtlasClient, AtlasClient>();
+                                .AddSingleton<IMongoClientProvider,
+                                    MongoClientProviderProvider>();
+                            services.AddSingleton<IInventoryRepository, InventoryRepository>();
                         })
                     .UseNavigation(
                         ReactiveViewModelMappings.ViewModelMappings,

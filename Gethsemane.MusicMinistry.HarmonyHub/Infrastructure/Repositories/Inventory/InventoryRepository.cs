@@ -1,60 +1,43 @@
-﻿using Gethsemane.MusicMinistry.HarmonyHub.Configuration;
+﻿using Gethsemane.MusicMinistry.HarmonyHub.Infrastructure.Mappers;
+using Gethsemane.MusicMinistry.HarmonyHub.Models.Inventory;
 using MongoDB.Driver;
 
 namespace Gethsemane.MusicMinistry.HarmonyHub.Infrastructure.Repositories.
     Inventory;
 
-public class InventoryRepository
+public class InventoryRepository : IInventoryRepository
 {
-    private readonly Lazy<ValueTask<IMongoClient>> _lazyMongoClient;
+    private readonly IMongoClientProvider _mongoClientProvider;
 
-    public InventoryRepository(IAtlasClient atlasClient)
+    public InventoryRepository(IMongoClientProvider mongoClientProvider)
     {
-        ArgumentNullException.ThrowIfNull(atlasClient);
-        _lazyMongoClient = atlasClient.LazyClient;
+        ArgumentNullException.ThrowIfNull(mongoClientProvider);
+        _mongoClientProvider = mongoClientProvider;
     }
 
-    public async Task DoSomethingAsync()
+    public async Task<InventoryItem[]> GetAllItems(CancellationToken ct)
     {
-        var client = await _lazyMongoClient.Value;
+        var client = await _mongoClientProvider.GetClientAsync();
+        var database = client.GetDatabase("HarmonyHub");
+        var collection = database.GetCollection<InventoryItemDto>("Inventory");
+        var findAsync = await collection.FindAsync(
+            i => true,
+            cancellationToken: ct);
+
+        var inventoryItemDtos = findAsync.ToList(cancellationToken: ct);
+
+        var inventoryItemList =
+            new List<InventoryItem>(inventoryItemDtos.Count);
+
+        inventoryItemList.AddRange(
+            inventoryItemDtos.Select(
+                InventoryItemMapper.Map));
+
+        return inventoryItemList.ToArray();
     }
 }
 
-public class AtlasClient : IAtlasClient
+public interface IInventoryRepository
 {
-    private readonly ISecretsClient _secretsClient;
-
-    public AtlasClient(ISecretsClient secretsClient)
-    {
-        ArgumentNullException.ThrowIfNull(secretsClient);
-        _secretsClient = secretsClient;
-        LazyClient = new Lazy<ValueTask<IMongoClient>>(CreateMongoClientAsync);
-    }
-
-    private static string AtlasConnectionString => "Atlas-ConnectionString";
-
-    public Lazy<ValueTask<IMongoClient>> LazyClient { get; init; }
-
-    private async ValueTask<IMongoClient> CreateMongoClientAsync()
-    {
-        var response = await _secretsClient
-            .GetSecretVersionAsync(
-                CancellationToken.None,
-                AtlasConnectionString,
-                "1");
-
-        if (response.Content?.Value == null)
-        {
-            throw new Exception("Atlas connection string is null");
-        }
-
-        var connectionString = response.Content.Value;
-        var client = new MongoClient(connectionString);
-        return client;
-    }
-}
-
-public interface IAtlasClient
-{
-    public Lazy<ValueTask<IMongoClient>> LazyClient { get; init; }
+    Task<InventoryItem[]> GetAllItems(CancellationToken ct);
 }

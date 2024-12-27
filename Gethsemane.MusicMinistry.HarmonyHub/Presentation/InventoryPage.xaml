@@ -6,6 +6,7 @@
       x:Class="Gethsemane.MusicMinistry.HarmonyHub.Presentation.InventoryPage" mc:Ignorable="d"
       Background="{ThemeResource BackgroundBrush}" utu:StatusBar.Foreground="Light"
       utu:StatusBar.Background="{ThemeResource SurfaceBrush}"
+      xmlns:uer="using:Uno.Extensions.Reactive.UI"
       NavigationCacheMode="Required"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
     <Page.Resources>
@@ -141,7 +142,28 @@
                                     </utu:AutoLayout>
                                 </ScrollViewer>
                             </utu:AutoLayout>
+                            <!-- List View -->
                             <utu:AutoLayout Background="{ThemeResource BackgroundBrush}">
+                                <utu:AutoLayout Spacing="16" CounterAxisAlignment="Center" Orientation="Horizontal"
+                                                Padding="16" utu:AutoLayout.CounterAlignment="Stretch">
+                                    <utu:AutoLayout PrimaryAxisAlignment="Center"
+                                                    utu:AutoLayout.PrimaryAlignment="Stretch">
+                                        <uer:FeedView Source="{Binding InventoryItems}">
+                                            <DataTemplate>
+                                                <ListView ItemsSource="{Binding Data}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock TextWrapping="Wrap"
+                                                                       Text="{Binding Name}"
+                                                                       Foreground="{ThemeResource OnSurfaceBrush}"
+                                                                       Style="{StaticResource TitleMedium}" />
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                </ListView>
+                                            </DataTemplate>
+                                        </uer:FeedView>
+                                    </utu:AutoLayout>
+                                </utu:AutoLayout>
                                 <utu:AutoLayout Spacing="16" CounterAxisAlignment="Center" Orientation="Horizontal"
                                                 Padding="16" utu:AutoLayout.CounterAlignment="Stretch">
                                     <utu:AutoLayout PrimaryAxisAlignment="Center"

@@ -1,6 +1,6 @@
 ﻿namespace Gethsemane.MusicMinistry.HarmonyHub.Models.Inventory;
 
-public record Borrower
+public class Borrower
 {
     public string Id;
     public int BorrowedQuantity;
