@@ -6,18 +6,21 @@ using Microsoft.Extensions.Configuration;
 
 namespace Gethsemane.MusicMinistry.HarmonyHub.Infrastructure.Authentication;
 
-public class AuthZeroClient : IAuthZeroClient
+public class AuthZeroService : IAuthZeroService
 {
     private readonly IConfiguration _configuration;
+    private readonly ITokenCache _tokenCache;
     private readonly Auth0Client _client;
     private string? _name;
     private string? _email;
 
-    public AuthZeroClient(IConfiguration configuration)
+    public AuthZeroService(IConfiguration configuration, ITokenCache tokenCache)
     {
         ArgumentNullException.ThrowIfNull(configuration);
+        ArgumentNullException.ThrowIfNull(tokenCache);
 
         _configuration = configuration;
+        _tokenCache = tokenCache;
 
         _client = new Auth0Client(
             new Auth0ClientOptions
@@ -69,12 +72,12 @@ public class AuthZeroClient : IAuthZeroClient
         return refreshResult;
     }
 
-    public string? GetCurrentName()
+    public string? GetCurrentName(CancellationToken ct)
     {
         return _name;
     }
 
-    public string? GetCurrentEmail()
+    public string? GetCurrentEmail(CancellationToken ct)
     {
         return _email;
     }

@@ -101,7 +101,7 @@ public partial class App : Application
                         {
                             // TODO: Register your services
                             //services.AddSingleton<IMyService, MyService>();
-                            services.AddSingleton<IAuthZeroClient, AuthZeroClient>();
+                            services.AddSingleton<IAuthZeroService, AuthZeroService>();
                             services
                                 .AddSingleton<IMongoClientProvider,
                                     MongoClientProviderProvider>();
@@ -131,9 +131,13 @@ public partial class App : Application
                     async (provider, dispatcher, credentials, ct) =>
                     {
                         var client =
-                            provider.GetRequiredService<IAuthZeroClient>();
+                            provider.GetRequiredService<IAuthZeroService>();
                         var authenticationResult =
                             await client.LoginAsync(cancellationToken: ct);
+
+                        var user = authenticationResult.User;
+                        var name = user.FindFirst(c => c.Type == "name")?.Value;
+                        var email = user.FindFirst(c => c.Type == "email")?.Value;
 
                         var token = authenticationResult.AccessToken;
                         var refreshToken = authenticationResult.RefreshToken;
@@ -167,7 +171,7 @@ public partial class App : Application
                     async (provider, dispatcher, credentials, ct) =>
                     {
                         var client =
-                            provider.GetRequiredService<IAuthZeroClient>();
+                            provider.GetRequiredService<IAuthZeroService>();
                         await client.LogoutAsync(cancellationToken: ct);
                         return true;
                     });
@@ -176,7 +180,7 @@ public partial class App : Application
                     async (provider, dispatcher, credentials, ct) =>
                     {
                         var client =
-                            provider.GetRequiredService<IAuthZeroClient>();
+                            provider.GetRequiredService<IAuthZeroService>();
                         var tokens = provider.GetRequiredService<ITokenCache>();
                         var token = await tokens.RefreshTokenAsync(ct);
                         if (string.IsNullOrWhiteSpace(token))
@@ -185,6 +189,7 @@ public partial class App : Application
                         }
 
                         var result = await client.RefreshTokenAsync(token, ct);
+
                         var accessToken = result.AccessToken;
                         var refreshToken = result.RefreshToken;
                         var idToken = result.IdentityToken;

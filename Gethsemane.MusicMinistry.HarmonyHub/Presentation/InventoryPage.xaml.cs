@@ -1,7 +1,5 @@
 using Windows.UI.Core;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace Gethsemane.MusicMinistry.HarmonyHub.Presentation;
 
 /// <summary>
@@ -36,10 +34,9 @@ public sealed partial class InventoryPage : Page
 
     private void OnBackRequested(object sender, BackRequestedEventArgs e)
     {
-        if (Frame.CanGoBack)
-        {
-            Frame.GoBack();
-            e.Handled = true; // Indicates that the back request has been handled
-        }
+        if (!Frame.CanGoBack) return;
+
+        Frame.GoBack();
+        e.Handled = true; // Indicates that the back request has been handled
     }
 }

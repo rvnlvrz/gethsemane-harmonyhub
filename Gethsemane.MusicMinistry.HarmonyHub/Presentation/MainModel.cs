@@ -8,18 +8,27 @@ namespace Gethsemane.MusicMinistry.HarmonyHub.Presentation;
 public partial record MainModel
 {
     private readonly IAuthenticationService _authenticationService;
-    private readonly IAuthZeroClient _authZeroClient;
+    private readonly IAuthZeroService _authZeroService;
+    private readonly ITokenCache _tokenCache;
     private readonly INavigator _navigator;
 
     public MainModel(
         IOptions<AppConfig> appInfo,
         INavigator navigator,
         IAuthenticationService authenticationService,
-        IAuthZeroClient authZeroClient)
+        IAuthZeroService authZeroService,
+        ITokenCache tokenCache)
     {
+        ArgumentNullException.ThrowIfNull(appInfo);
+        ArgumentNullException.ThrowIfNull(navigator);
+        ArgumentNullException.ThrowIfNull(authenticationService);
+        ArgumentNullException.ThrowIfNull(authZeroService);
+        ArgumentNullException.ThrowIfNull(tokenCache);
+
         _navigator = navigator;
         _authenticationService = authenticationService;
-        _authZeroClient = authZeroClient;
+        _authZeroService = authZeroService;
+        _tokenCache = tokenCache;
         Title = "Harmony Hub";
         Title += $" - {appInfo?.Value?.Environment}";
     }
@@ -40,22 +49,20 @@ public partial record MainModel
     private async Task LogoutImpl(CancellationToken ct)
     {
         await _authenticationService.LogoutAsync();
-        await User.UpdateAsync(x => _authZeroClient.GetCurrentName(), ct);
-        await Email.UpdateAsync(x => _authZeroClient.GetCurrentEmail(), ct);
+        await User.UpdateAsync(_ => _authZeroService.GetCurrentName(ct), ct);
+        await Email.UpdateAsync(_ => _authZeroService.GetCurrentEmail(ct), ct);
     }
 
     private async Task AuthenticateImpl(CancellationToken ct)
     {
-        await _authenticationService.LoginAsync(cancellationToken: ct);
-        await User.UpdateAsync(x => _authZeroClient.GetCurrentName(), ct);
-        await Email.UpdateAsync(x => _authZeroClient.GetCurrentEmail(), ct);
-    }
+        var isAuthenticated = await _authenticationService.IsAuthenticated();
 
-    public async Task GoToSecond()
-    {
-        var name = await Name;
-        await _navigator.NavigateViewModelAsync<SecondModel>(
-            this,
-            data: new Entity(name!));
+        if (!isAuthenticated)
+        {
+            await _authenticationService.LoginAsync(cancellationToken: ct);
+        }
+
+        await User.UpdateAsync(_ => _authZeroService.GetCurrentName(ct), ct);
+        await Email.UpdateAsync(_ => _authZeroService.GetCurrentEmail(ct), ct);
     }
 }

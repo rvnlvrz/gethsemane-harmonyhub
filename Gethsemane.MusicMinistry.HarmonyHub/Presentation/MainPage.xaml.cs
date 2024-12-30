@@ -1,6 +1,4 @@
-﻿
-
-// ReSharper disable AsyncVoidMethod
+﻿// ReSharper disable AsyncVoidMethod
 
 namespace Gethsemane.MusicMinistry.HarmonyHub.Presentation;
 
