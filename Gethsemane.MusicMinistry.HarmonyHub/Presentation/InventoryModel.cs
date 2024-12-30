@@ -21,6 +21,11 @@ public partial record InventoryModel
 
     public string? Title => "Inventory";
 
-    public IFeed<InventoryItem[]> InventoryItems => Feed.Async(
-        async ct => await _inventoryRepository.GetAllItems(ct));
+    private IListFeed<InventoryItem> InventoryItems =>
+        ListFeed.Async(async ct => await _inventoryRepository.GetAllItems(ct));
+
+    public IListFeed<InventoryItem> AllItems => InventoryItems;
+
+    public IListFeed<InventoryItem> BorrowedItems =>
+        InventoryItems.Where(item => item.BorrowedQuantity > 0);
 }

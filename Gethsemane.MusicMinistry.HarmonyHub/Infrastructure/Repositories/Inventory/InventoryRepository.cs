@@ -15,7 +15,7 @@ public class InventoryRepository : IInventoryRepository
         _mongoClientProvider = mongoClientProvider;
     }
 
-    public async Task<InventoryItem[]> GetAllItems(CancellationToken ct)
+    public async Task<IImmutableList<InventoryItem>> GetAllItems(CancellationToken ct)
     {
         var client = await _mongoClientProvider.GetClientAsync();
         var database = client.GetDatabase("HarmonyHub");
@@ -33,11 +33,11 @@ public class InventoryRepository : IInventoryRepository
             inventoryItemDtos.Select(
                 InventoryItemMapper.Map));
 
-        return inventoryItemList.ToArray();
+        return ImmutableList.CreateRange(inventoryItemList);
     }
 }
 
 public interface IInventoryRepository
 {
-    Task<InventoryItem[]> GetAllItems(CancellationToken ct);
+    Task<IImmutableList<InventoryItem>> GetAllItems(CancellationToken ct);
 }

@@ -1,4 +1,5 @@
-﻿using Auth0.OidcClient;
+﻿using System.IdentityModel.Tokens.Jwt;
+using Auth0.OidcClient;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Browser;
 using IdentityModel.OidcClient.Results;
@@ -11,8 +12,6 @@ public class AuthZeroService : IAuthZeroService
     private readonly IConfiguration _configuration;
     private readonly ITokenCache _tokenCache;
     private readonly Auth0Client _client;
-    private string? _name;
-    private string? _email;
 
     public AuthZeroService(IConfiguration configuration, ITokenCache tokenCache)
     {
@@ -21,7 +20,6 @@ public class AuthZeroService : IAuthZeroService
 
         _configuration = configuration;
         _tokenCache = tokenCache;
-
         _client = new Auth0Client(
             new Auth0ClientOptions
             {
@@ -33,6 +31,33 @@ public class AuthZeroService : IAuthZeroService
             });
     }
 
+    public async Task<(string? name, string? email)> GetUserInfoAsync(CancellationToken ct =
+        default)
+    {
+        var tokens = await _tokenCache.GetAsync(ct);
+
+        var hasValue = tokens.TryGetValue(TokenCacheExtensions.IdTokenKey, out var idToken);
+
+        if (hasValue)
+        {
+            var handler = new JwtSecurityTokenHandler();
+
+            if (!handler.CanReadToken(idToken))
+            {
+                return (null, null);
+            }
+
+            var jwtContents = handler.ReadJwtToken(idToken);
+
+            var name = jwtContents.Payload["name"].ToString() ?? null;
+            var email = jwtContents.Payload["email"].ToString() ?? null;
+
+            return (name, email);
+        }
+
+        return (null, null);
+    }
+
     public async Task<LoginResult> LoginAsync(CancellationToken ct)
     {
         var loginResult = await _client.LoginAsync(
@@ -42,19 +67,12 @@ public class AuthZeroService : IAuthZeroService
                 audience = _configuration["Auth0:Audience"]
             });
 
-        var user = loginResult.User;
-        _name = user.FindFirst(c => c.Type == "name")?.Value;
-        _email = user.FindFirst(c => c.Type == "email")?.Value;
-
         return loginResult;
     }
 
     public async Task<BrowserResultType> LogoutAsync(CancellationToken ct)
     {
         var logoutResult = await _client.LogoutAsync(cancellationToken: ct);
-        _name = "Logged out";
-        _email = "Please sign in";
-
         return logoutResult;
     }
 
@@ -62,23 +80,6 @@ public class AuthZeroService : IAuthZeroService
         CancellationToken ct)
     {
         var refreshResult = await _client.RefreshTokenAsync(token, ct);
-
-        if (refreshResult.IsError)
-        {
-            _name = "Logged out";
-            _email = "Please sign in";
-        }
-
         return refreshResult;
-    }
-
-    public string? GetCurrentName(CancellationToken ct)
-    {
-        return _name;
-    }
-
-    public string? GetCurrentEmail(CancellationToken ct)
-    {
-        return _email;
     }
 }

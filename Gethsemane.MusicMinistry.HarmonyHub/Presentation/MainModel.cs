@@ -9,8 +9,8 @@ public partial record MainModel
 {
     private readonly IAuthenticationService _authenticationService;
     private readonly IAuthZeroService _authZeroService;
-    private readonly ITokenCache _tokenCache;
     private readonly INavigator _navigator;
+    private readonly ITokenCache _tokenCache;
 
     public MainModel(
         IOptions<AppConfig> appInfo,
@@ -49,8 +49,14 @@ public partial record MainModel
     private async Task LogoutImpl(CancellationToken ct)
     {
         await _authenticationService.LogoutAsync();
-        await User.UpdateAsync(_ => _authZeroService.GetCurrentName(ct), ct);
-        await Email.UpdateAsync(_ => _authZeroService.GetCurrentEmail(ct), ct);
+        await SetUserInfo(ct);
+    }
+
+    private async Task SetUserInfo(CancellationToken ct)
+    {
+        var (user, email) = await _authZeroService.GetUserInfoAsync(ct);
+        await User.UpdateAsync(_ => user ?? "Logged out", ct);
+        await Email.UpdateAsync(_ => email ?? "Please sign-in", ct);
     }
 
     private async Task AuthenticateImpl(CancellationToken ct)
@@ -62,7 +68,6 @@ public partial record MainModel
             await _authenticationService.LoginAsync(cancellationToken: ct);
         }
 
-        await User.UpdateAsync(_ => _authZeroService.GetCurrentName(ct), ct);
-        await Email.UpdateAsync(_ => _authZeroService.GetCurrentEmail(ct), ct);
+        await SetUserInfo(ct);
     }
 }

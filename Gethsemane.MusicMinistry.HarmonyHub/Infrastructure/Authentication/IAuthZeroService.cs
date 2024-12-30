@@ -12,6 +12,6 @@ public interface IAuthZeroService
     Task<RefreshTokenResult> RefreshTokenAsync(string token,
         CancellationToken cancellationToken);
 
-    string? GetCurrentName(CancellationToken ct);
-    string? GetCurrentEmail(CancellationToken ct);
+    Task<(string? name, string? email)> GetUserInfoAsync(CancellationToken ct =
+        default);
 }

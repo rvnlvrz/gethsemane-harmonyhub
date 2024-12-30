@@ -1,6 +1,6 @@
 ﻿namespace Gethsemane.MusicMinistry.HarmonyHub.Models.Inventory;
 
-public class Inventory
+public class InventoryAggregateRoot
 {
     public List<InventoryItem> Items { get; set; } = new();
 

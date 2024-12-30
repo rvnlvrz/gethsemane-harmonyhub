@@ -92,7 +92,7 @@ public partial class App : Application
 #endif
                             .AddSingleton<IWeatherCache, WeatherCache>()
                             .AddRefitClient<IApiClient>(context)
-                            .AddRefitClient<ISecretsClient>(context))
+                            .AddRefitClient<ISecretsService>(context))
                     .UseAuthentication(
                         builder =>
                             AddCustomAuthenticationBuilder(builder))
@@ -104,7 +104,7 @@ public partial class App : Application
                             services.AddSingleton<IAuthZeroService, AuthZeroService>();
                             services
                                 .AddSingleton<IMongoClientProvider,
-                                    MongoClientProviderProvider>();
+                                    MongoClientProvider>();
                             services.AddSingleton<IInventoryRepository, InventoryRepository>();
                         })
                     .UseNavigation(
@@ -134,10 +134,6 @@ public partial class App : Application
                             provider.GetRequiredService<IAuthZeroService>();
                         var authenticationResult =
                             await client.LoginAsync(cancellationToken: ct);
-
-                        var user = authenticationResult.User;
-                        var name = user.FindFirst(c => c.Type == "name")?.Value;
-                        var email = user.FindFirst(c => c.Type == "email")?.Value;
 
                         var token = authenticationResult.AccessToken;
                         var refreshToken = authenticationResult.RefreshToken;

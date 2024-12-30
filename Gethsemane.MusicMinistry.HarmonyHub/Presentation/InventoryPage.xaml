@@ -8,6 +8,7 @@
       utu:StatusBar.Background="{ThemeResource SurfaceBrush}"
       xmlns:uer="using:Uno.Extensions.Reactive.UI"
       NavigationCacheMode="Required"
+      xmlns:converters="using:Gethsemane.MusicMinistry.HarmonyHub.Converters"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
     <Page.Resources>
         <!-- ReSharper disable Xaml.LanguageLevel -->
@@ -15,8 +16,23 @@
         <x:String x:Key="Icon_Keyboard_Backspace">F1 M 18 5 L 3.8299999237060547 5 L 7.409999847412109 1.4099998474121094 L 6 0 L 0 6 L 6 12 L 7.409999847412109 10.59000015258789 L 3.8299999237060547 7 L 18 7 L 18 5 Z</x:String>
         <x:String x:Key="Icon_Search">F1 M 12.5 11 L 11.710000038146973 11 L 11.430000305175781 10.729999542236328 C 12.410000324249268 9.589999556541443 13 8.110000014305115 13 6.5 C 13 2.9100000858306885 10.089999914169312 0 6.5 0 C 2.9100000858306885 0 0 2.9100000858306885 0 6.5 C 0 10.089999914169312 2.9100000858306885 13 6.5 13 C 8.110000014305115 13 9.589999556541443 12.410000324249268 10.729999542236328 11.430000305175781 L 11 11.710000038146973 L 11 12.5 L 16 17.489999771118164 L 17.489999771118164 16 L 12.5 11 L 12.5 11 Z M 6.5 11 C 4.009999990463257 11 2 8.990000009536743 2 6.5 C 2 4.009999990463257 4.009999990463257 2 6.5 2 C 8.990000009536743 2 11 4.009999990463257 11 6.5 C 11 8.990000009536743 8.990000009536743 11 6.5 11 Z</x:String>
         <x:String x:Key="Icon_Sort">F1 M 0 12 L 6 12 L 6 10 L 0 10 L 0 12 Z M 0 0 L 0 2 L 18 2 L 18 0 L 0 0 Z M 0 7 L 12 7 L 12 5 L 0 5 L 0 7 Z</x:String>
+
+        <converters:StringFormatter x:Key="BorrowedCountLabelFormatter"
+                                    x:Uid="InventoryItem_BorrowedCountLabelFormatter"
+                                    Format="{}{0} Borrowed" />
+
+        <converters:StringFormatter x:Key="InventoryCountLabelFormatter"
+                                    x:Uid="InventoryItem_InventoryCountLabelFormatter"
+                                    Format="{}x {0}" />
+
+        <converters:BorrowedCountVisibilityConverter x:Key="BorrowedCountVisibilityConverter"
+                                                     x:Uid="InventoryItem_BorrowedCountVisibilityConverter" />
+
+        <converters:ItemTypeEnumConverter x:Key="ItemTypeLabelConverter"
+                                          x:Uid="InventoryItem_ItemTypeLabelConverter" />
         <!-- ReSharper restore Xaml.LanguageLevel -->
     </Page.Resources>
+
     <utu:AutoLayout Background="{ThemeResource BackgroundBrush}" CounterAxisAlignment="Start"
                     uen:Region.Attached="True">
         <!-- ReSharper disable Xaml.UnexpectedElement -->
@@ -156,7 +172,7 @@
                                                 utu:AutoLayout.PrimaryAlignment="Stretch">
                                     <uer:FeedView x:Name="AllItemsFeedView"
                                                   utu:AutoLayout.PrimaryAlignment="Stretch"
-                                                  Source="{Binding InventoryItems}">
+                                                  Source="{Binding AllItems}">
                                         <DataTemplate>
                                             <ListView ItemsSource="{Binding Data}">
                                                 <ListView.ItemTemplate>
@@ -169,7 +185,7 @@
                                                             <utu:AutoLayout PrimaryAxisAlignment="Center"
                                                                             utu:AutoLayout.PrimaryAlignment="Stretch">
                                                                 <TextBlock TextWrapping="Wrap"
-                                                                           Text="Sheet Music"
+                                                                           Text="{Binding ItemType, Converter={StaticResource ItemTypeLabelConverter}}"
                                                                            Foreground="{ThemeResource OnSurfaceVariantBrush}"
                                                                            Style="{StaticResource LabelSmall}" />
                                                                 <TextBlock TextWrapping="Wrap"
@@ -179,12 +195,14 @@
                                                             </utu:AutoLayout>
                                                             <utu:AutoLayout Spacing="4"
                                                                             CounterAxisAlignment="End"
-                                                                            utu:AutoLayout.CounterAlignment="Start">
-                                                                <TextBlock TextAlignment="End" Text="x 12"
+                                                                            utu:AutoLayout.CounterAlignment="Center">
+                                                                <TextBlock TextAlignment="End"
+                                                                           Text="{Binding ItemCount, Converter={StaticResource InventoryCountLabelFormatter}}"
                                                                            Foreground="{ThemeResource OnSurfaceBrush}"
                                                                            Style="{StaticResource BodyLarge}" />
                                                                 <TextBlock TextAlignment="End"
-                                                                           Text="3 Borrowed"
+                                                                           Visibility="{Binding Borrowers.Count, Converter={StaticResource BorrowedCountVisibilityConverter}}"
+                                                                           Text="{Binding Borrowers.Count, Converter={StaticResource BorrowedCountLabelFormatter}}"
                                                                            Foreground="{ThemeResource OnSurfaceBrush}"
                                                                            Style="{StaticResource BodySmall}" />
                                                             </utu:AutoLayout>
