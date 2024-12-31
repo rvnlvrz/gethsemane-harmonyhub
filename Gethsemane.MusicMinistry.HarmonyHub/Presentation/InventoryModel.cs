@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using Gethsemane.MusicMinistry.HarmonyHub.Infrastructure.Repositories.Inventory;
 using Gethsemane.MusicMinistry.HarmonyHub.Models.Inventory;
 

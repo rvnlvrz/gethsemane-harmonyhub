@@ -16,20 +16,27 @@
         <x:String x:Key="Icon_Keyboard_Backspace">F1 M 18 5 L 3.8299999237060547 5 L 7.409999847412109 1.4099998474121094 L 6 0 L 0 6 L 6 12 L 7.409999847412109 10.59000015258789 L 3.8299999237060547 7 L 18 7 L 18 5 Z</x:String>
         <x:String x:Key="Icon_Search">F1 M 12.5 11 L 11.710000038146973 11 L 11.430000305175781 10.729999542236328 C 12.410000324249268 9.589999556541443 13 8.110000014305115 13 6.5 C 13 2.9100000858306885 10.089999914169312 0 6.5 0 C 2.9100000858306885 0 0 2.9100000858306885 0 6.5 C 0 10.089999914169312 2.9100000858306885 13 6.5 13 C 8.110000014305115 13 9.589999556541443 12.410000324249268 10.729999542236328 11.430000305175781 L 11 11.710000038146973 L 11 12.5 L 16 17.489999771118164 L 17.489999771118164 16 L 12.5 11 L 12.5 11 Z M 6.5 11 C 4.009999990463257 11 2 8.990000009536743 2 6.5 C 2 4.009999990463257 4.009999990463257 2 6.5 2 C 8.990000009536743 2 11 4.009999990463257 11 6.5 C 11 8.990000009536743 8.990000009536743 11 6.5 11 Z</x:String>
         <x:String x:Key="Icon_Sort">F1 M 0 12 L 6 12 L 6 10 L 0 10 L 0 12 Z M 0 0 L 0 2 L 18 2 L 18 0 L 0 0 Z M 0 7 L 12 7 L 12 5 L 0 5 L 0 7 Z</x:String>
+        <x:String x:Key="Icon_Date_Range">F1 M 4.5 6.75 L 3 6.75 L 3 8.25 L 4.5 8.25 L 4.5 6.75 Z M 7.5 6.75 L 6 6.75 L 6 8.25 L 7.5 8.25 L 7.5 6.75 Z M 10.5 6.75 L 9 6.75 L 9 8.25 L 10.5 8.25 L 10.5 6.75 Z M 12 1.5 L 11.25 1.5 L 11.25 0 L 9.75 0 L 9.75 1.5 L 3.75 1.5 L 3.75 0 L 2.25 0 L 2.25 1.5 L 1.5 1.5 C 0.6674999892711639 1.5 0.007499992847442627 2.1749999821186066 0.007499992847442627 3 L 0 13.5 C 0 14.325000017881393 0.6674999892711639 15 1.5 15 L 12 15 C 12.825000017881393 15 13.5 14.325000017881393 13.5 13.5 L 13.5 3 C 13.5 2.1749999821186066 12.825000017881393 1.5 12 1.5 Z M 12 13.5 L 1.5 13.5 L 1.5 5.25 L 12 5.25 L 12 13.5 Z</x:String>
 
-        <converters:StringFormatter x:Key="BorrowedCountLabelFormatter"
-                                    x:Uid="InventoryItem_BorrowedCountLabelFormatter"
+        <!-- All Items -->
+        <converters:StringFormatter x:Key="AllItemsSecondaryLabelTextFormatter"
+                                    x:Uid="AllItems_SecondaryLabelTextFormatter"
                                     Format="{}{0} Borrowed" />
 
-        <converters:StringFormatter x:Key="InventoryCountLabelFormatter"
-                                    x:Uid="InventoryItem_InventoryCountLabelFormatter"
+        <converters:StringFormatter x:Key="AllItemsPrimaryLabelTextFormatter"
+                                    x:Uid="AllItems_PrimaryLabelTextFormatter"
                                     Format="{}x {0}" />
 
-        <converters:BorrowedCountVisibilityConverter x:Key="BorrowedCountVisibilityConverter"
-                                                     x:Uid="InventoryItem_BorrowedCountVisibilityConverter" />
+        <converters:BorrowedCountVisibilityConverter x:Key="AllItemsSecondaryLabelVisibilityConverter"
+                                                     x:Uid="AllItems_SecondaryLabelVisibilityConverter" />
 
         <converters:ItemTypeEnumConverter x:Key="ItemTypeLabelConverter"
                                           x:Uid="InventoryItem_ItemTypeLabelConverter" />
+
+        <!-- Borrowed Items -->
+        <converters:DueDateTimeToStringConverter x:Key="BorrowedItemsSecondaryLabelTextFormatter"
+                                                 x:Uid="BorrowedItems_SecondaryLabelTextFormatter" />
+
         <!-- ReSharper restore Xaml.LanguageLevel -->
     </Page.Resources>
 
@@ -78,12 +85,13 @@
                 </utu:TabBar>
             </utu:AutoLayout>
             <!-- Body Content -->
-            <RefreshContainer>
+            <RefreshContainer RefreshRequested="RefreshContainer_OnRefreshRequested"
+                              utu:AutoLayout.PrimaryAlignment="Stretch">
                 <ScrollViewer utu:AutoLayout.PrimaryAlignment="Stretch">
                     <Grid uen:Region.Attached="True"
                           uen:Region.Navigator="Visibility">
                         <!-- All Items -->
-                        <Grid Visibility="Collapsed" uen:Region.Name="All Items">
+                        <Grid Visibility="Visible" uen:Region.Name="All Items">
                             <utu:AutoLayout Spacing="8" Padding="0,8">
                                 <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Overview"
                                            utu:AutoLayout.CounterAlignment="Stretch"
@@ -95,9 +103,9 @@
                                     <ScrollViewer HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Hidden"
                                                   VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled"
                                                   utu:AutoLayout.CounterAlignment="Stretch">
-                                        <utu:AutoLayout Spacing="16" CounterAxisAlignment="Start"
+                                        <utu:AutoLayout Spacing="8" CounterAxisAlignment="Start"
                                                         Orientation="Horizontal"
-                                                        Padding="16,0,16,8">
+                                                        Padding="0,0,0,16">
                                             <utu:CardContentControl Margin="0" Width="144" CornerRadius="12"
                                                                     Style="{StaticResource ElevatedCardContentControlStyle}"
                                                                     IsClickable="False">
@@ -168,6 +176,7 @@
                                     </ScrollViewer>
                                 </utu:AutoLayout>
                                 <!-- List View -->
+                                <!--<presentation:InventoryListControl></presentation:InventoryListControl>-->
                                 <utu:AutoLayout Background="{ThemeResource BackgroundBrush}"
                                                 utu:AutoLayout.PrimaryAlignment="Stretch">
                                     <uer:FeedView x:Name="AllItemsFeedView"
@@ -197,12 +206,12 @@
                                                                             CounterAxisAlignment="End"
                                                                             utu:AutoLayout.CounterAlignment="Center">
                                                                 <TextBlock TextAlignment="End"
-                                                                           Text="{Binding ItemCount, Converter={StaticResource InventoryCountLabelFormatter}}"
+                                                                           Text="{Binding ItemCount, Converter={StaticResource AllItemsPrimaryLabelTextFormatter}}"
                                                                            Foreground="{ThemeResource OnSurfaceBrush}"
                                                                            Style="{StaticResource BodyLarge}" />
                                                                 <TextBlock TextAlignment="End"
-                                                                           Visibility="{Binding Borrowers.Count, Converter={StaticResource BorrowedCountVisibilityConverter}}"
-                                                                           Text="{Binding Borrowers.Count, Converter={StaticResource BorrowedCountLabelFormatter}}"
+                                                                           Visibility="{Binding Borrowers.Count, Converter={StaticResource AllItemsSecondaryLabelVisibilityConverter}}"
+                                                                           Text="{Binding BorrowedQuantity, Converter={StaticResource AllItemsSecondaryLabelTextFormatter}}"
                                                                            Foreground="{ThemeResource OnSurfaceBrush}"
                                                                            Style="{StaticResource BodySmall}" />
                                                             </utu:AutoLayout>
@@ -217,11 +226,60 @@
                         </Grid>
                         <!-- Borrowed -->
                         <Grid Visibility="Collapsed" uen:Region.Name="Borrowed">
-                            <utu:AutoLayout Spacing="8" Padding="0,8">
-                                <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Borrowed (Placeholder)"
-                                           utu:AutoLayout.CounterAlignment="Stretch"
-                                           Foreground="{ThemeResource OnSurfaceBrush}"
-                                           Style="{StaticResource TitleLarge}" />
+                            <utu:AutoLayout Spacing="8" CounterAxisAlignment="Start" Padding="0,8,0,0">
+                                <!--This causes a lot of errors-->
+                                <utu:Chip Foreground="{ThemeResource OnSurfaceVariantBrush}" Content="Overdue"
+                                          Margin="8,0" BorderBrush="{ThemeResource OutlineVariantBrush}"
+                                          BorderThickness="1" Style="{StaticResource MaterialChipStyle}">
+                                    <utu:Chip.Icon>
+                                        <PathIcon Data="{StaticResource Icon_Date_Range}"
+                                                  Foreground="{ThemeResource OnSurfaceVariantBrush}" />
+                                    </utu:Chip.Icon>
+                                </utu:Chip>
+                                <utu:AutoLayout Background="{ThemeResource BackgroundBrush}"
+                                                utu:AutoLayout.PrimaryAlignment="Stretch">
+                                    <uer:FeedView x:Name="BorrowedItemsFeedView"
+                                                  utu:AutoLayout.PrimaryAlignment="Stretch"
+                                                  Source="{Binding BorrowedItems}">
+                                        <DataTemplate>
+                                            <ListView ItemsSource="{Binding Data}">
+                                                <ListView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <utu:AutoLayout Spacing="16"
+                                                                        CounterAxisAlignment="Center"
+                                                                        Orientation="Horizontal"
+                                                                        Padding="16"
+                                                                        utu:AutoLayout.CounterAlignment="Stretch">
+                                                            <utu:AutoLayout PrimaryAxisAlignment="Center"
+                                                                            utu:AutoLayout.PrimaryAlignment="Stretch">
+                                                                <TextBlock TextWrapping="Wrap"
+                                                                           Text="{Binding ItemType, Converter={StaticResource ItemTypeLabelConverter}}"
+                                                                           Foreground="{ThemeResource OnSurfaceVariantBrush}"
+                                                                           Style="{StaticResource LabelSmall}" />
+                                                                <TextBlock TextWrapping="Wrap"
+                                                                           Text="{Binding Name}"
+                                                                           Foreground="{ThemeResource OnSurfaceBrush}"
+                                                                           Style="{StaticResource TitleMedium}" />
+                                                            </utu:AutoLayout>
+                                                            <utu:AutoLayout Spacing="4"
+                                                                            CounterAxisAlignment="End"
+                                                                            utu:AutoLayout.CounterAlignment="Center">
+                                                                <TextBlock TextAlignment="End"
+                                                                           Text="{Binding BorrowedQuantity, Converter={StaticResource AllItemsPrimaryLabelTextFormatter}}"
+                                                                           Foreground="{ThemeResource OnSurfaceBrush}"
+                                                                           Style="{StaticResource BodyLarge}" />
+                                                                <TextBlock TextAlignment="End"
+                                                                           Text="{Binding NearestDueDate, Converter={StaticResource BorrowedItemsSecondaryLabelTextFormatter}}"
+                                                                           Foreground="{ThemeResource OnSurfaceBrush}"
+                                                                           Style="{StaticResource BodySmall}" />
+                                                            </utu:AutoLayout>
+                                                        </utu:AutoLayout>
+                                                    </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                            </ListView>
+                                        </DataTemplate>
+                                    </uer:FeedView>
+                                </utu:AutoLayout>
                             </utu:AutoLayout>
                         </Grid>
                     </Grid>

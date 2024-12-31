@@ -1,5 +1,6 @@
 ﻿using Microsoft.UI.Xaml.Data;
 
+// ReSharper disable ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
 namespace Gethsemane.MusicMinistry.HarmonyHub.Converters;
 
 public class BorrowedCountVisibilityConverter : IValueConverter

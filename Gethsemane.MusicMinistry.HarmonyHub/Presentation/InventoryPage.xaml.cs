@@ -39,4 +39,11 @@ public sealed partial class InventoryPage : Page
         Frame.GoBack();
         e.Handled = true; // Indicates that the back request has been handled
     }
+
+    private void RefreshContainer_OnRefreshRequested(RefreshContainer sender,
+        RefreshRequestedEventArgs args)
+    {
+        var refreshCommand = AllItemsFeedView.Refresh;
+        refreshCommand.Execute(sender);
+    }
 }

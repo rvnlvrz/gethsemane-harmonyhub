@@ -23,5 +23,25 @@ public class InventoryItem(
     public int BorrowedQuantity =>
         Borrowers.Sum(borrower => borrower.BorrowedQuantity);
 
+    public DateOnly? NearestDueDate
+    {
+        get
+        {
+            var today = DateOnly.FromDateTime(DateTime.Now);
+            var dates = borrowers.Select(b => DateOnly.FromDateTime(b.DueDate)).ToList();
+
+            if (dates.Count == 0) return null;
+
+            // Sort by closeness to today, prioritizing past dates if equal
+            var sortedDates = dates
+                .OrderBy(date =>
+                    Math.Abs(date.DayNumber - today.DayNumber)) // Closest in absolute days
+                .ThenByDescending(date =>
+                    date.DayNumber < today.DayNumber) // Prioritize past dates
+                .ToList();
+            return sortedDates.First();
+        }
+    }
+
     [MapperIgnore] public bool IsAvailable => ItemCount >= BorrowedQuantity;
 }
