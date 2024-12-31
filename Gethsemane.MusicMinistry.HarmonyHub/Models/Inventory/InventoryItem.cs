@@ -28,7 +28,7 @@ public class InventoryItem(
         get
         {
             var today = DateOnly.FromDateTime(DateTime.Now);
-            var dates = borrowers.Select(b => DateOnly.FromDateTime(b.DueDate)).ToList();
+            var dates = Borrowers.Select(b => DateOnly.FromDateTime(b.DueDate)).ToList();
 
             if (dates.Count == 0) return null;
 
