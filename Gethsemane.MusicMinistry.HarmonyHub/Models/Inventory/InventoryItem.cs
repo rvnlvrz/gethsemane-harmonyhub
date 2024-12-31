@@ -23,6 +23,8 @@ public class InventoryItem(
     public int BorrowedQuantity =>
         Borrowers.Sum(borrower => borrower.BorrowedQuantity);
 
+    [MapperIgnore] public int AvailableQuantity => ItemCount - BorrowedQuantity;
+
     public DateOnly? NearestDueDate
     {
         get

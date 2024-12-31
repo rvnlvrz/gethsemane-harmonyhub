@@ -103,7 +103,7 @@
                                     <ScrollViewer HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Hidden"
                                                   VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled"
                                                   utu:AutoLayout.CounterAlignment="Stretch">
-                                        <utu:AutoLayout Spacing="8" CounterAxisAlignment="Start"
+                                        <utu:AutoLayout Spacing="0" CounterAxisAlignment="Start"
                                                         Orientation="Horizontal"
                                                         Padding="0,0,0,16">
                                             <utu:CardContentControl Margin="0" Width="144" CornerRadius="12"
@@ -272,6 +272,51 @@
                                                                            Text="{Binding NearestDueDate, Converter={StaticResource BorrowedItemsSecondaryLabelTextFormatter}}"
                                                                            Foreground="{ThemeResource OnSurfaceBrush}"
                                                                            Style="{StaticResource BodySmall}" />
+                                                            </utu:AutoLayout>
+                                                        </utu:AutoLayout>
+                                                    </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                            </ListView>
+                                        </DataTemplate>
+                                    </uer:FeedView>
+                                </utu:AutoLayout>
+                            </utu:AutoLayout>
+                        </Grid>
+                        <!-- Available -->
+                        <Grid Visibility="Collapsed" uen:Region.Name="Available">
+                            <utu:AutoLayout Spacing="8" CounterAxisAlignment="Start" Padding="0,8,0,0">
+                                <utu:AutoLayout Background="{ThemeResource BackgroundBrush}"
+                                                utu:AutoLayout.PrimaryAlignment="Stretch">
+                                    <uer:FeedView x:Name="AvailableItemsFeedView"
+                                                  utu:AutoLayout.PrimaryAlignment="Stretch"
+                                                  Source="{Binding AvailableItems}">
+                                        <DataTemplate>
+                                            <ListView ItemsSource="{Binding Data}">
+                                                <ListView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <utu:AutoLayout Spacing="16"
+                                                                        CounterAxisAlignment="Center"
+                                                                        Orientation="Horizontal"
+                                                                        Padding="16"
+                                                                        utu:AutoLayout.CounterAlignment="Stretch">
+                                                            <utu:AutoLayout PrimaryAxisAlignment="Center"
+                                                                            utu:AutoLayout.PrimaryAlignment="Stretch">
+                                                                <TextBlock TextWrapping="Wrap"
+                                                                           Text="{Binding ItemType, Converter={StaticResource ItemTypeLabelConverter}}"
+                                                                           Foreground="{ThemeResource OnSurfaceVariantBrush}"
+                                                                           Style="{StaticResource LabelSmall}" />
+                                                                <TextBlock TextWrapping="Wrap"
+                                                                           Text="{Binding Name}"
+                                                                           Foreground="{ThemeResource OnSurfaceBrush}"
+                                                                           Style="{StaticResource TitleMedium}" />
+                                                            </utu:AutoLayout>
+                                                            <utu:AutoLayout Spacing="4"
+                                                                            CounterAxisAlignment="End"
+                                                                            utu:AutoLayout.CounterAlignment="Center">
+                                                                <TextBlock TextAlignment="End"
+                                                                           Text="{Binding AvailableQuantity, Converter={StaticResource AllItemsPrimaryLabelTextFormatter}}"
+                                                                           Foreground="{ThemeResource OnSurfaceBrush}"
+                                                                           Style="{StaticResource BodyLarge}" />
                                                             </utu:AutoLayout>
                                                         </utu:AutoLayout>
                                                     </DataTemplate>

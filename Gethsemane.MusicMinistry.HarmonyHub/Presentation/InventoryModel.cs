@@ -7,8 +7,8 @@ namespace Gethsemane.MusicMinistry.HarmonyHub.Presentation;
 [Bindable(BindableSupport.Yes)]
 public partial record InventoryModel
 {
-    private readonly INavigator _navigator;
     private readonly IInventoryRepository _inventoryRepository;
+    private readonly INavigator _navigator;
 
     public InventoryModel(INavigator navigator, IInventoryRepository inventoryRepository)
     {
@@ -28,4 +28,7 @@ public partial record InventoryModel
 
     public IListFeed<InventoryItem> BorrowedItems =>
         InventoryItems.Where(item => item.BorrowedQuantity > 0);
+
+    public IListFeed<InventoryItem> AvailableItems =>
+        InventoryItems.Where(item => item.IsAvailable);
 }
