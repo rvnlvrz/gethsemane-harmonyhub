@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using Microsoft.UI.Xaml.Data;
 
 // ReSharper disable ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
@@ -16,23 +16,25 @@ public class DueDateTimeToStringConverter : IValueConverter
         var daysBeforeDue = dueDate.DayNumber - now.DayNumber;
 
         var stringBuilder = new StringBuilder(3);
-        if (daysBeforeDue < 0) stringBuilder.Append('-');
 
         switch (GetAbsoluteValue(daysBeforeDue))
         {
+            case 0:
+                stringBuilder.Append("Today");
+                return stringBuilder.ToString();
             case < 7:
                 stringBuilder.Append(daysBeforeDue);
                 stringBuilder.Append('d');
                 return stringBuilder.ToString();
             case < 30:
-                var weeks = (int)Math.Ceiling((double)daysBeforeDue / 7);
+                var weeks = (int)Math.Round((double)daysBeforeDue / 7);
                 stringBuilder.Append(weeks);
-                stringBuilder.Append('w');
+                stringBuilder.Append("wk");
                 return stringBuilder.ToString();
             case >= 30:
-                var months = (int)Math.Ceiling((double)daysBeforeDue / 30);
+                var months = (int)Math.Round((double)daysBeforeDue / 30);
                 stringBuilder.Append(months);
-                stringBuilder.Append('m');
+                stringBuilder.Append("mo");
                 return stringBuilder.ToString();
             default:
                 stringBuilder.Append("N/A");
