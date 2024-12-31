@@ -18,10 +18,10 @@
         <Description>Gethsemane.MusicMinistry.HarmonyHub powered by Uno Platform.</Description>
         <!--
           If you encounter this error message:
-    
+
             error NETSDK1148: A referenced assembly was compiled using a newer version of Microsoft.Windows.SDK.NET.dll.
             Please update to a newer .NET SDK in order to reference this assembly.
-    
+
           This means that the two packages below must be aligned with the "build" version number of
           the "Microsoft.Windows.SDK.BuildTools" package above, and the "revision" version number
           must be the highest found in https://www.nuget.org/packages/Microsoft.Windows.SDK.NET.Ref.
@@ -34,6 +34,7 @@
         -->
         <UnoFeatures>
             Material;
+            AuthenticationOidc;
             Dsp;
             Hosting;
             Toolkit;
@@ -47,6 +48,7 @@
             Navigation;
             ThemeService;
         </UnoFeatures>
+        <UserSecretsId>6d3a5c1b-f049-4236-849c-a011a2248408</UserSecretsId>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)'=='Debug' or '$(IsUiAutomationMappingEnabled)'=='True'">
@@ -55,13 +57,31 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Gethsemane.MusicMinistry.HarmonyHub.MauiControls\Gethsemane.MusicMinistry.HarmonyHub.MauiControls.csproj" />
+        <ProjectReference Include="..\Gethsemane.MusicMinistry.HarmonyHub.MauiControls\Gethsemane.MusicMinistry.HarmonyHub.MauiControls.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <MauiXaml Include="Presentation\MauiXaml1.xaml">
-        <IsDefaultItem>true</IsDefaultItem>
-      </MauiXaml>
+        <MauiXaml Include="Presentation\MauiXaml1.xaml">
+            <IsDefaultItem>true</IsDefaultItem>
+        </MauiXaml>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Auth0.OidcClient.MAUI"/>
+        <PackageReference Include="MongoDB.Driver"/>
+        <PackageReference Include="Riok.Mapperly"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="Uno.UI.HotDesign.Xaml.Interactivity">
+            <HintPath>..\..\..\..\.nuget\packages\uno.ui.hotdesign\1.1.1\lib\net8.0-windows10.0.19041\Uno.UI.HotDesign.Xaml.Interactivity.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Page Update="Presentation\InventoryListControl.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </Page>
     </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-namespace Gethsemane.MusicMinistry.HarmonyHub.DataContracts;
+namespace Gethsemane.MusicMinistry.HarmonyHub.Models;
 
 /// <summary>
 /// A Weather Forecast for a specific date

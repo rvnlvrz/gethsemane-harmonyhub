@@ -1,0 +1,171 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Int64 x:Key="/Default/CodeEditing/NullCheckPatterns/PatternTypeNamesToPriority/=JetBrains_002EReSharper_002EFeature_002EServices_002ECSharp_002ENullChecking_002EArgumentNullExceptionThrowIfNullPattern/@EntryIndexedValue">5000</s:Int64>
+	<s:Int64 x:Key="/Default/CodeEditing/NullCheckPatterns/PatternTypeNamesToPriority/=JetBrains_002EReSharper_002EFeature_002EServices_002ECSharp_002ENullChecking_002EIfThenThrowPattern/@EntryIndexedValue">2000</s:Int64>
+	<s:Int64 x:Key="/Default/CodeEditing/NullCheckPatterns/PatternTypeNamesToPriority/=JetBrains_002EReSharper_002EFeature_002EServices_002ECSharp_002ENullChecking_002EThrowExpressionNullCheckPattern/@EntryIndexedValue">3000</s:Int64>
+	<s:String x:Key="/Default/CodeStyle/CodeFormatting/CSharpFormat/WRAP_PARAMETERS_STYLE/@EntryValue">CHOP_IF_LONG</s:String>
+	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002ECSharpKeepExistingMigration/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002ECSharpPlaceEmbeddedOnSameLineMigration/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002ECSharpUseContinuousIndentInsideBracesMigration/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002ESettingsUpgrade_002EMigrateBlankLinesAroundFieldToBlankLinesAroundProperty/@EntryIndexedValue">True</s:Boolean>
+	
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=CA2BCBEDCCADCF45A944AD8695528636/Entry/=302863586F0CDD4D9DF45775DEC1BF8C/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=CA2BCBEDCCADCF45A944AD8695528636/Entry/=302863586F0CDD4D9DF45775DEC1BF8C/EntryName/@EntryValue">Uno Resource Dictionary</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=CA2BCBEDCCADCF45A944AD8695528636/Entry/=302863586F0CDD4D9DF45775DEC1BF8C/Position/@EntryValue">2</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=CA2BCBEDCCADCF45A944AD8695528636/Entry/=5D3747EE5195EB4CAF6B94612549BA1E/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=CA2BCBEDCCADCF45A944AD8695528636/Entry/=5D3747EE5195EB4CAF6B94612549BA1E/EntryName/@EntryValue">Uno Page</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=CA2BCBEDCCADCF45A944AD8695528636/Entry/=5D3747EE5195EB4CAF6B94612549BA1E/Position/@EntryValue">3</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=CA2BCBEDCCADCF45A944AD8695528636/Entry/=F46A5E0CC5A0A947B891C74A889D78FA/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=CA2BCBEDCCADCF45A944AD8695528636/Entry/=F46A5E0CC5A0A947B891C74A889D78FA/EntryName/@EntryValue">&lt;No Name&gt;</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=CA2BCBEDCCADCF45A944AD8695528636/Entry/=F46A5E0CC5A0A947B891C74A889D78FA/Position/@EntryValue">1</s:Int64>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/Entry/=2CBD6971A7955044AD2624B84FB49E38/Position/@EntryValue">9</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/Entry/=51646DE1CBD9E94781B87AC0A0F0B16D/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/Entry/=51646DE1CBD9E94781B87AC0A0F0B16D/EntryName/@EntryValue">&lt;No Name&gt;</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/Entry/=51646DE1CBD9E94781B87AC0A0F0B16D/Position/@EntryValue">10</s:Int64>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/Entry/=567DCF4B487C244A9F6BB46E4E9F3B84/Position/@EntryValue">6</s:Int64>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/Entry/=7F2A1BE8D0078241A9AE7802038BAD3C/Position/@EntryValue">7</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/Entry/=94F32F0145CA8C44BDAAE28D61B6F393/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/Entry/=94F32F0145CA8C44BDAAE28D61B6F393/EntryName/@EntryValue">&lt;No Name&gt;</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/Entry/=94F32F0145CA8C44BDAAE28D61B6F393/Position/@EntryValue">11</s:Int64>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/Entry/=C4795E57DDEC1C4F97BBC8C7173EBBCA/Position/@EntryValue">8</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=302863586F0CDD4D9DF45775DEC1BF8C/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=302863586F0CDD4D9DF45775DEC1BF8C/Applicability/=File/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=302863586F0CDD4D9DF45775DEC1BF8C/CustomProperties/=Extension/@EntryIndexedValue">xaml</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=302863586F0CDD4D9DF45775DEC1BF8C/CustomProperties/=FileName/@EntryIndexedValue">ResourceDictionary</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=302863586F0CDD4D9DF45775DEC1BF8C/CustomProperties/=ValidateFileName/@EntryIndexedValue">False</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=302863586F0CDD4D9DF45775DEC1BF8C/Description/@EntryValue">Resource Dictionary</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=302863586F0CDD4D9DF45775DEC1BF8C/Image/@EntryValue">Xaml</s:String>
+	
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=302863586F0CDD4D9DF45775DEC1BF8C/Scope/=E7CFFE18D9B99549AE3902238EDA927F/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=302863586F0CDD4D9DF45775DEC1BF8C/Scope/=E7CFFE18D9B99549AE3902238EDA927F/Type/@EntryValue">InWPFXamlProject</s:String>
+	
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=302863586F0CDD4D9DF45775DEC1BF8C/Text/@EntryValue">&lt;ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&#xD;
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;&#xD;
+  $END$&#xD;
+&lt;/ResourceDictionary&gt;</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/Applicability/=File/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/CustomProperties/=Extension/@EntryIndexedValue">cs</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/CustomProperties/=FileName/@EntryIndexedValue">Page</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/CustomProperties/=ValidateFileName/@EntryIndexedValue">True</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/Description/@EntryValue">Uno Page</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/Field/=NAMESPACE/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/Field/=NAMESPACE/Expression/@EntryValue">fileDefaultNamespace()</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/Field/=NAMESPACE/InitialRange/@EntryValue">-1</s:Int64>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/Field/=NAMESPACE/Order/@EntryValue">0</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/Scope/=E8F0594528C33E45BBFEC6CFE851095D/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/Scope/=E8F0594528C33E45BBFEC6CFE851095D/Type/@EntryValue">InCSharpProjectFile</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/Text/@EntryValue">namespace $NAMESPACE$;
+
+public sealed partial class ClassName : Page
+{
+    public ClassName()
+    {
+        this.InitializeComponent();     
+    }
+}</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=51646DE1CBD9E94781B87AC0A0F0B16D/UITag/@EntryValue">Uno Platform</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Applicability/=File/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/CustomProperties/=Extension/@EntryIndexedValue">xaml</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/CustomProperties/=FileName/@EntryIndexedValue">UserControl</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/CustomProperties/=ValidateFileName/@EntryIndexedValue">True</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Description/@EntryValue">Uno UserControl</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Field/=CLASS/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Field/=CLASS/Expression/@EntryValue">getAlphaNumericFileNameWithoutExtension()</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Field/=CLASS/InitialRange/@EntryValue">-1</s:Int64>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Field/=CLASS/Order/@EntryValue">1</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Field/=NAMESPACE/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Field/=NAMESPACE/Expression/@EntryValue">fileDefaultNamespace()</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Field/=NAMESPACE/InitialRange/@EntryValue">-1</s:Int64>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Field/=NAMESPACE/Order/@EntryValue">0</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Scope/=55C906A5BD591341AE313A07A8F303DE/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Scope/=55C906A5BD591341AE313A07A8F303DE/Type/@EntryValue">InAnyXamlProject</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/Text/@EntryValue">&lt;UserControl
+    x:Class="$NAMESPACE$.$CLASS$"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:$NAMESPACE$"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"&gt;
+
+    &lt;Grid&gt;
+       &lt;!-- Make sure to create a $CLASS$.xaml.cs file using the "usercontrol" snippet --&gt;
+       
+    &lt;/Grid&gt;
+&lt;/UserControl&gt;</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=5D3747EE5195EB4CAF6B94612549BA1E/UITag/@EntryValue">Uno Platform</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/Applicability/=File/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/CustomProperties/=Extension/@EntryIndexedValue">cs</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/CustomProperties/=FileName/@EntryIndexedValue">UserControl</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/CustomProperties/=ValidateFileName/@EntryIndexedValue">True</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/Description/@EntryValue">Uno UserControl</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/Field/=NAMESPACE/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/Field/=NAMESPACE/Expression/@EntryValue">fileDefaultNamespace()</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/Field/=NAMESPACE/InitialRange/@EntryValue">-1</s:Int64>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/Field/=NAMESPACE/Order/@EntryValue">0</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/Scope/=E8F0594528C33E45BBFEC6CFE851095D/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/Scope/=E8F0594528C33E45BBFEC6CFE851095D/Type/@EntryValue">InCSharpProjectFile</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/Text/@EntryValue">namespace $NAMESPACE$;
+
+public sealed partial class ClassName : UserControl
+{
+    public ClassName()
+    {
+        this.InitializeComponent();
+    }
+}</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=94F32F0145CA8C44BDAAE28D61B6F393/UITag/@EntryValue">Uno Platform</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=E86FFC4DDF68794DBEA79D17669D7153/CustomProperties/=FileName/@EntryIndexedValue">ResourceDictionary</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=E86FFC4DDF68794DBEA79D17669D7153/CustomProperties/=ValidateFileName/@EntryIndexedValue">True</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=E86FFC4DDF68794DBEA79D17669D7153/Description/@EntryValue">Uno Resource Dictionary</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=E86FFC4DDF68794DBEA79D17669D7153/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=E86FFC4DDF68794DBEA79D17669D7153/Scope/=55C906A5BD591341AE313A07A8F303DE/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=E86FFC4DDF68794DBEA79D17669D7153/Scope/=55C906A5BD591341AE313A07A8F303DE/Type/@EntryValue">InAnyXamlProject</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=E86FFC4DDF68794DBEA79D17669D7153/Scope/=E7CFFE18D9B99549AE3902238EDA927F/@KeyIndexDefined">False</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=E86FFC4DDF68794DBEA79D17669D7153/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=E86FFC4DDF68794DBEA79D17669D7153/UITag/@EntryValue">Uno Platform</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Applicability/=File/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/CustomProperties/=Extension/@EntryIndexedValue">xaml</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/CustomProperties/=FileName/@EntryIndexedValue">Page</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/CustomProperties/=ValidateFileName/@EntryIndexedValue">True</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Description/@EntryValue">Uno Page</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Field/=CLASS/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Field/=CLASS/Expression/@EntryValue">getAlphaNumericFileNameWithoutExtension()</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Field/=CLASS/InitialRange/@EntryValue">-1</s:Int64>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Field/=CLASS/Order/@EntryValue">1</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Field/=NAMESPACE/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Field/=NAMESPACE/Expression/@EntryValue">fileDefaultNamespace()</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Field/=NAMESPACE/InitialRange/@EntryValue">-1</s:Int64>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Field/=NAMESPACE/Order/@EntryValue">0</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Scope/=55C906A5BD591341AE313A07A8F303DE/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Scope/=55C906A5BD591341AE313A07A8F303DE/Type/@EntryValue">InAnyXamlProject</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/Text/@EntryValue">&lt;Page
+    x:Class="$NAMESPACE$.$CLASS$"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:$NAMESPACE$"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"&gt;
+
+    &lt;Grid&gt;
+       &lt;!-- Make sure to create a $CLASS$.xaml.cs file using the "page" snippet --&gt;
+       
+    &lt;/Grid&gt;
+&lt;/Page&gt;</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=F46A5E0CC5A0A947B891C74A889D78FA/UITag/@EntryValue">Uno Platform</s:String>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=dtos/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

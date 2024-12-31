@@ -1,4 +1,6 @@
-﻿namespace Gethsemane.MusicMinistry.HarmonyHub.Presentation;
+﻿// ReSharper disable AsyncVoidMethod
+
+namespace Gethsemane.MusicMinistry.HarmonyHub.Presentation;
 
 public sealed partial class MainPage : Page
 {
