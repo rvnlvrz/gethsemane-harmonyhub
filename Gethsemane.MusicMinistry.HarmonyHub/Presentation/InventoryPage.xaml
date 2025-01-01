@@ -237,7 +237,8 @@
                                     </utu:Chip.Icon>
                                 </utu:Chip>
                                 <utu:AutoLayout Background="{ThemeResource BackgroundBrush}"
-                                                utu:AutoLayout.PrimaryAlignment="Stretch">
+                                                utu:AutoLayout.PrimaryAlignment="Stretch"
+                                                utu:AutoLayout.CounterAlignment="Stretch">
                                     <uer:FeedView x:Name="BorrowedItemsFeedView"
                                                   utu:AutoLayout.PrimaryAlignment="Stretch"
                                                   Source="{Binding BorrowedItems}">
@@ -286,7 +287,8 @@
                         <Grid Visibility="Collapsed" uen:Region.Name="Available">
                             <utu:AutoLayout Spacing="8" CounterAxisAlignment="Start" Padding="0,8,0,0">
                                 <utu:AutoLayout Background="{ThemeResource BackgroundBrush}"
-                                                utu:AutoLayout.PrimaryAlignment="Stretch">
+                                                utu:AutoLayout.PrimaryAlignment="Stretch"
+                                                utu:AutoLayout.CounterAlignment="Stretch">
                                     <uer:FeedView x:Name="AvailableItemsFeedView"
                                                   utu:AutoLayout.PrimaryAlignment="Stretch"
                                                   Source="{Binding AvailableItems}">
