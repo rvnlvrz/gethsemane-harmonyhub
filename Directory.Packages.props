@@ -22,7 +22,7 @@
         <PackageVersion Include="Riok.Mapperly" Version="4.1.1"/>
         <PackageVersion Include="Uno.UITest.Helpers" Version="1.1.0-dev.70"/>
         <PackageVersion Include="Uno.WinUI" Version="5.5.94"/>
-        <PackageVersion Include="Xamarin.UITest" Version="4.3.4"/>
+        <PackageVersion Include="Xamarin.UITest" Version="4.4.2"/>
         <PackageVersion Include="Microsoft.Maui.Controls" Version="$(MauiVersion)"/>
         <PackageVersion Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)"/>
     </ItemGroup>
